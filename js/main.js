@@ -29,21 +29,21 @@ var mode = getLSMode();
 
 // Open Menu
 function openMenu() {
-    $("#open-menu").click(function () {
+    $("#open-menu").off().click(function () {
         $("nav").css("left", "0vw");
     })
 }
 
 // Close menu
 function closeMenu() {
-    $("#close-menu").click(function () {
+    $("#close-menu").off().click(function () {
         $("nav").css("left", "-100vw");
     })
 }
 
 // Submit params form
 function submitForm() {
-    $("#submit").click(function () {
+    $("#submit").off().click(function () {
         clearLS();
         closeMenu();
         var inputDays = $("#inputDays").val();
@@ -209,9 +209,10 @@ function displayHomeButton() {
 
 // Go home, pay bus ticket
 function travelHome() {
-    $("#btn-home").click(function () {
+    $("#btn-home").off().click(function () {
         if (getLSMoney() >= 2 && getLSDays() >  0) {
-            setLSDays(parseInt(getLSDays()) - 1);
+            let days = parseInt(getLSDays());
+            setLSDays(days - 1);
             displayDays(getLSDays());
             $("#events").slideUp().promise().done(function () {
                 displayDistrictPanel();
@@ -230,7 +231,7 @@ function travelHome() {
 
 // Take bus to a district
 function travelDistrict(districts) {
-    $(".district-content").click(function () {
+    $(".district-content").off().click(function () {
         if (getLSDays() > 0 && getLSMoney() >= 2) {
             displayMessage("Tu prends le bus, - " + transportPrice + currency);
             setLSMoney(getLSMoney() - transportPrice);

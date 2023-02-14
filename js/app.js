@@ -5,7 +5,7 @@ const money = 1000;
 const days = 30;
 
 // Mode
-const gameMode =  [{id: 0, name: "soft"}, {id: 1, name: "hardcore"}];
+const gameMode =  [{id: 0, name: "soft"}, {id: 1, name: "junk"}];
 
 // Currency
 const currency = " €";
@@ -14,7 +14,7 @@ const currency = " €";
 const transportPrice = 2;
 
 // Home image
-const homeImg = "../img/home.jpg";
+const homeImg = "img/home.jpg";
 
 // Cops raid 
 const bust = 0;
