@@ -239,6 +239,11 @@ function travelDistrict(districts) {
             displayTradePanel($(this), districts);
             displayPrices();
             setTimeout(function () { displayHomeButton() }, 1000);
+            for(let i=0; i < products.length; i++) {
+                // Display sell options
+                $("#s_" + i).fadeIn(200);
+                $("#sell_" + i).fadeIn(200);
+            }
         } else {
             // End Game
             end();
@@ -253,6 +258,9 @@ function buy() {
         let id = $(this).attr("id");
         id = id.charAt(id.length - 1);
         if (getLSMoney() >= getPrices()[id]) {
+            // Remove sell options
+            $("#s_" + id).fadeOut(200);
+            $("#sell_" + id).fadeOut(200);
             // Products
             let p = getLSProductOwned();
             let upd_obj = p.findIndex((obj => obj.id == id));

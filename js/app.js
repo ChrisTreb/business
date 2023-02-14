@@ -172,6 +172,7 @@ function getRandom(min, max) {
  * function reset
  * function win end game
  * function disable buttons if you buy you can't sell
+ * function get history (money spent, money won)
  */
 
 export {
