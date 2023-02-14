@@ -21,21 +21,21 @@ const bust = 0;
 
 // Districts 
 const districts = [
-    {id: 0, name: "Kerangoff", img: "../img/Brest/Kerang.jpg"},
-    {id: 1, name: "Kerourien", img: "../img/Brest/Kerour.jpg"},
-    {id: 2, name: "Pontanézen", img: "../img/Brest/Ponta.jpg"},
-    {id: 3, name: "Queliverzan", img: "../img/Brest/Queli.jpg"},
-    {id: 4, name: "Bellevue", img: "../img/Brest/Bellevue.jpg"},
-    {id: 5, name: "Lambezellec", img: "../img/Brest/Lambez.jpg"}, 
+    {id: 0, name: "Kerangoff", img: "./img/Brest/Kerang.jpg"},
+    {id: 1, name: "Kerourien", img: "./img/Brest/Kerour.jpg"},
+    {id: 2, name: "Pontanézen", img: "./img/Brest/Ponta.jpg"},
+    {id: 3, name: "Queliverzan", img: "./img/Brest/Queli.jpg"},
+    {id: 4, name: "Bellevue", img: "./img/Brest/Bellevue.jpg"},
+    {id: 5, name: "Lambezellec", img: "./img/Brest/Lambez.jpg"}, 
 ];
 
 const districts_soft = [
-    {id: 0, name: "Manhattan", img: "../img/Nyc/Manhattan.jpg"},
-    {id: 1, name: "Brooklyn", img: "../img/Nyc/Brooklyn.jpg"},
-    {id: 2, name: "Queens", img: "../img/Nyc/Queens.jpg"},
-    {id: 3, name: "Bronx", img: "../img/Nyc/Bronx.jpg"},
-    {id: 4, name: "Staten Island", img: "../img/Nyc/Staten-island.jpg"},
-    {id: 5, name: "New Jersey", img: "../img/Nyc/New-jersey.jpg"}, 
+    {id: 0, name: "Manhattan", img: "./img/Nyc/Manhattan.jpg"},
+    {id: 1, name: "Brooklyn", img: "./img/Nyc/Brooklyn.jpg"},
+    {id: 2, name: "Queens", img: "./img/Nyc/Queens.jpg"},
+    {id: 3, name: "Bronx", img: "./img/Nyc/Bronx.jpg"},
+    {id: 4, name: "Staten Island", img: "./img/Nyc/Staten-island.jpg"},
+    {id: 5, name: "New Jersey", img: "./img/Nyc/New-jersey.jpg"}, 
 ];
 
 // Products
