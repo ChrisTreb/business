@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Retailer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <nav>
+        <!-- TODO SET NAV FOR TUTORIAL & RULES -->
+        <div id="nav-container">
+            <div id="close-menu">
+                <i class="bi bi-x-square"></i>
+            </div>
+            <div id="open-menu">
+                <div>
+                    <i class="bi bi-caret-right-square"></i>
+                </div>
+            </div>
+
+            <h2 class="menu-title">MENU</h2>
+            <p><b>Réglage des paramètres</b></p>
+            <form class="form-floating">
+                <input type="number" class="form-control" id="inputDays" placeholder="30" value="30" min="10" max="100">
+                <label for="inputDays">Combien de jours ?</label>
+                <div class="form-text mb-3">Nombre maximum de jours : 365</div>
+            </form>
+            <form class="form-floating">
+                <input type="number" class="form-control" id="inputMoney" placeholder="1000" value="1000" min="500" max="10000">
+                <label for="inputMoney">Combien d'argent ?</label>
+                <div class="form-text mb-3">Montant maximum : 99999 €</div>
+            </form>
+            <h2 class="mode-menu">MODE</h2>
+            <form class="form-floating">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="mode" id="mode-1"
+                        value="soft" checked>
+                    <label class="form-check-label">Soft</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="mode" id="mode-2"
+                        value="junk">
+                    <label class="form-check-label">Junk</label>
+                </div>
+            </form>
+            <button id="submit">Valider</button>
+        </div>
+    </nav>
+
+    <section id="main-container">
+        <div id="main-row" class="row">
+            <!-- INFOS -->
+            <div id="infos" class="col-md-2">
+                <div id="calendar">
+                    <div class="calendar-top">
+                        <p>Jours restants</p>
+                    </div>
+                    <div class="calendar-bottom">
+                        <p id="days"></p>
+                    </div>
+                </div>
+                <div id="wallet">
+                    <p>Votre portefeuille</p>
+                    <p id="money"></p>
+                </div>
+                <div id="home">
+                    <button id="btn-home">
+                        RENTRER
+                    </button>
+                </div>
+            </div>
+
+            <!-- EVENTS -->
+            <div id="events" class="col-md-5">
+                <div id="items" class="row">
+                    <div class="items-container">
+                        <h2>Votre chargement</h2>
+                        <div>
+                            <p><span class="product-name" id="p_0"></span> : <span class="product-number"
+                                    id="p_0_amount"></span></p>
+                            <p><span class="product-name" id="p_1"></span> : <span class="product-number"
+                                    id="p_1_amount"></span></p>
+                            <p><span class="product-name" id="p_2"></span> : <span class="product-number"
+                                    id="p_2_amount"></span></p>
+                            <p><span class="product-name" id="p_3"></span> : <span class="product-number"
+                                    id="p_3_amount"></span></p>
+                            <p><span class="product-name" id="p_4"></span> : <span class="product-number"
+                                    id="p_4_amount"></span></p>
+                            <p><span class="product-name" id="p_5"></span> : <span class="product-number"
+                                    id="p_5_amount"></span></p>
+                            <p><span class="product-name" id="p_6"></span> : <span class="product-number"
+                                    id="p_6_amount"></span></p>
+                            <p><span class="product-name" id="p_7"></span> : <span class="product-number"
+                                    id="p_7_amount"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="trade" class="row">
+                    <ul id="items-trade-list">
+                        <div id="items-top">
+                            <p class="item-name">Nom</p>
+                            <p class="item-buy-price">Prix d'achat</p>
+                            <p class="item-sell-price">Prix de vente</p>
+                        </div>
+
+                        <li class="item" id="i_0">
+                            <p class="name"></p>
+                            <p><span class="buy-price" id="buy_0"></span></p><button class="buy" id="b_0">ACHAT</button>
+                            <span id="sell_0" class="sell-price"></span><button class="sell" id="s_0">VENTE</button>
+                        </li>
+                        <li class="item" id="i_1">
+                            <p class="name"></p>
+                            <p><span class="buy-price" id="buy_1"></span></p><button class="buy" id="b_1">ACHAT</button>
+                            <span id="sell_1" class="sell-price"></span><button class="sell" id="s_1">VENTE</button>
+                        </li>
+                        <li class="item" id="i_2">
+                            <p class="name"></p>
+                            <p><span class="buy-price" id="buy_2"></span></p><button class="buy" id="b_2">ACHAT</button>
+                            <span id="sell_2" class="sell-price"></span><button class="sell" id="s_2">VENTE</button>
+                        </li>
+                        <li class="item" id="i_3">
+                            <p class="name"></p>
+                            <p><span class="buy-price" id="buy_3"></span></p><button class="buy" id="b_3">ACHAT</button>
+                            <span id="sell_3" class="sell-price"></span><button class="sell" id="s_3">VENTE</button>
+                        </li>
+                        <li class="item" id="i_4">
+                            <p class="name"></p>
+                            <p><span class="buy-price" id="buy_4"></span></p><button class="buy" id="b_4">ACHAT</button>
+                            <span id="sell_4" class="sell-price"></span><button class="sell" id="s_4">VENTE</button>
+                        </li>
+                        <li class="item" id="i_5">
+                            <p class="name"></p>
+                            <p><span class="buy-price" id="buy_5"></span></p><button class="buy" id="b_5">ACHAT</button>
+                            <span id="sell_5" class="sell-price"></span><button class="sell" id="s_5">VENTE</button>
+                        </li>
+                        <li class="item" id="i_6">
+                            <p class="name"></p>
+                            <p><span class="buy-price" id="buy_6"></span></p><button class="buy" id="b_6">ACHAT</button>
+                            <span id="sell_6" class="sell-price"></span><button class="sell" id="s_6">VENTE</button>
+                        </li>
+                        <li class="item" id="i_7">
+                            <p class="name"></p>
+                            <p><span class="buy-price" id="buy_7"></span></p><button class="buy" id="b_7">ACHAT</button>
+                            <span id="sell_7" class="sell-price"></span><button class="sell" id="s_7">VENTE</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DISTRICTS -->
+            <div id="districts" class="col-md-5">
+                <div id="districts-container">
+                    <div id="d_0" class="district">
+                        <div class="district-content">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="d_1" class="district">
+                        <div class="district-content">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="d_2" class="district">
+                        <div class="district-content">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="d_3" class="district">
+                        <div class="district-content">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="d_4" class="district">
+                        <div class="district-content">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="d_5" class="district">
+                        <div class="district-content">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="popup">
+            <div>
+                <div id="popup-content">
+                    <h2 id="popup-title"></h2>
+                    <p id="pop-text"></p>
+                    <button id="btn-quit" onclick="location.reload()">
+                        Quitter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="message">
+            <div> 
+                <p id="message-text"></p>
+            </div>
+        </div>
+
+    </section>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+        </script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous">
+        </script>
+    <script type="module" src="js/app.js" async defer></script>
+    <script type="module" src="js/main.js" async defer></script>
+</body>
+
+</html>
