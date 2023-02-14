@@ -25,8 +25,6 @@ import {
     clearLS
 } from "./app.js";
 
-var mode = getLSMode();
-
 // Open Menu
 function openMenu() {
     $("#open-menu").off().click(function () {
@@ -50,11 +48,11 @@ function submitForm() {
         var inputMoney = $("#inputMoney").val();
         let inputMode = $("input[name='mode']:checked").val();
 
-        if(inputDays > 365) {
+        if (inputDays > 365) {
             $("#inputDays").val(365);
             inputDays = 365;
         }
-        if(inputDays < 1 ) {
+        if (inputDays < 1) {
             $("#inputDays").val(days);
             inputDays = days;
         }
@@ -86,7 +84,6 @@ function submitForm() {
         if (inputMode === gameMode[0].name) {
             // Set mode
             setLSMode(gameMode[0].name);
-            mode = getLSMode();
 
             // Display district
             displayDistricts(districts_soft);
@@ -95,8 +92,7 @@ function submitForm() {
             displayProductsNames(products_soft);
             displayListProductsNames(products_soft);
         } else {
-            setLSMode(gameMode[0].name);
-            mode = getLSMode();
+            setLSMode(gameMode[1].name);
 
             // Display district
             displayDistricts(districts);
@@ -106,6 +102,7 @@ function submitForm() {
             displayListProductsNames(products);
         }
 
+        $("body").css("background-image", "url(" + homeImg + ")");
         $("#events").fadeOut();
         displayDistrictPanel();
         $("#btn-home").fadeOut();
@@ -192,13 +189,18 @@ function displayEventsPanel() {
 }
 
 // Display trade div
-function displayTradePanel(district, districts) {
+function displayTradePanel(district) {
     let districtDomId = district.parent().attr("id");
     var districtId = districtDomId.charAt(districtDomId.length - 1);
     $("#districts").slideUp().promise().done(function () {
         displayEventsPanel()
     }).promise().done(function () {
-        $("body").css("background-image", "url(" + districts[districtId].img + ")");
+        if(getLSMode() === gameMode[0].name) {
+            $("body").css("background-image", "url(" + districts_soft[districtId].img + ")");
+        } else {
+            $("body").css("background-image", "url(" + districts[districtId].img + ")");
+        }
+        
     });
 }
 
@@ -210,7 +212,7 @@ function displayHomeButton() {
 // Go home, pay bus ticket
 function travelHome() {
     $("#btn-home").off().click(function () {
-        if (getLSMoney() >= 2 && getLSDays() >  0) {
+        if (getLSMoney() >= 2 && getLSDays() > 0) {
             let days = parseInt(getLSDays());
             setLSDays(days - 1);
             displayDays(getLSDays());
@@ -230,16 +232,16 @@ function travelHome() {
 }
 
 // Take bus to a district
-function travelDistrict(districts) {
+function travelDistrict(mode) {
     $(".district-content").off().click(function () {
         if (getLSDays() > 0 && getLSMoney() >= 2) {
             displayMessage("Tu prends le bus, - " + transportPrice + currency);
             setLSMoney(getLSMoney() - transportPrice);
             displayMoney(getLSMoney());
-            displayTradePanel($(this), districts);
+            displayTradePanel($(this));
             displayPrices();
             setTimeout(function () { displayHomeButton() }, 1000);
-            for(let i=0; i < products.length; i++) {
+            for (let i = 0; i < products.length; i++) {
                 // Display sell options
                 $("#s_" + i).fadeIn(200);
                 $("#sell_" + i).fadeIn(200);
@@ -321,7 +323,7 @@ function displayMessage(message) {
     $("#message").css("left", getRandom(250, 800) + "px");
     $("#message").fadeIn();
     $("#message-text").text(message);
-    setTimeout(function () { 
+    setTimeout(function () {
         $("#message").fadeOut();
     }, 3000);
 }
@@ -357,13 +359,8 @@ $(document).ready(function () {
     // Display products owned
     displayProductsAmounts();
 
-    if (mode = gameMode[0].name) {
-        // Move to a district
-        travelDistrict(districts_soft);
-    } else {
-        // Move to a district
-        travelDistrict(districts);
-    }
+    // Move to a district
+    travelDistrict();
 
     // Go back home
     travelHome();
