@@ -122,30 +122,6 @@ function displayDistricts(d) {
     }
 }
 
-// End game
-function end() {
-    $("#popup").fadeIn();
-    if (parseInt(getLSDays()) === 0) {
-        clearLS();
-        displayDays(0);
-        $("#popup-title").text("Le mois est terminé !");
-    } else if (getLSMoney() <= 2) {
-        clearLS();
-        $("#popup-title").text("Vous êtes à sec !");
-    }
-}
-
-// Display message
-function displayMessage(message) {
-    $("#message").css("bottom", getRandom(100, 600) + "px");
-    $("#message").css("left", getRandom(250, 800) + "px");
-    $("#message").fadeIn();
-    $("#message-text").text(message);
-    setTimeout(function () { 
-        $("#message").fadeOut();
-    }, 3000);
-}
-
 // Display products names in event div
 function displayProductsNames(products) {
     for (let i = 0; i < products.length; i++) {
@@ -205,6 +181,7 @@ function displaySellPrices() {
     }
 }
 
+// Display district panel
 function displayDistrictPanel() {
     $("#districts").slideDown();
 }
@@ -230,7 +207,7 @@ function displayHomeButton() {
     $("#btn-home").fadeIn();
 }
 
-// Go home
+// Go home, pay bus ticket
 function travelHome() {
     $("#btn-home").click(function () {
         if (getLSMoney() >= 2 && getLSDays() >  0) {
@@ -239,6 +216,7 @@ function travelHome() {
             $("#events").slideUp().promise().done(function () {
                 displayDistrictPanel();
                 $("#btn-home").fadeOut();
+                displayMessage("Tu prends le bus pour rentrer, - " + transportPrice + currency);
                 setLSMoney(getLSMoney() - transportPrice);
             }).promise().done(function () {
                 $("body").css("background-image", "url(" + homeImg + ")");
@@ -250,10 +228,11 @@ function travelHome() {
     });
 }
 
-// Pay transport
+// Take bus to a district
 function travelDistrict(districts) {
     $(".district-content").click(function () {
         if (getLSDays() > 0 && getLSMoney() >= 2) {
+            displayMessage("Tu prends le bus, - " + transportPrice + currency);
             setLSMoney(getLSMoney() - transportPrice);
             displayMoney(getLSMoney());
             displayTradePanel($(this), districts);
@@ -313,6 +292,34 @@ function sell() {
         }
     });
 }
+
+// End game
+function end() {
+    $("#popup").fadeIn();
+    if (parseInt(getLSDays()) === 0) {
+        clearLS();
+        displayDays(0);
+        $("#popup-title").text("Le mois est terminé !");
+    } else if (getLSMoney() <= 2) {
+        clearLS();
+        $("#popup-title").text("Vous êtes à sec !");
+    }
+}
+
+// Display message
+function displayMessage(message) {
+    $("#message").css("bottom", getRandom(100, 600) + "px");
+    $("#message").css("left", getRandom(250, 800) + "px");
+    $("#message").fadeIn();
+    $("#message-text").text(message);
+    setTimeout(function () { 
+        $("#message").fadeOut();
+    }, 3000);
+}
+
+//----------------------------------------
+// READY FUNCTION !!!!!!!!!!!!! ----------
+//----------------------------------------
 
 $(document).ready(function () {
 
