@@ -415,7 +415,7 @@ button:active {
 #btn-home {
     display: none;
     width: 90%;
-    font-size: 2em;
+    font-size: 2vw;
     border: 2px solid #2761c3;
     color: #2761c3;
 }
