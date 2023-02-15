@@ -38,7 +38,7 @@
                 <div class="form-text mb-3">Montant maximum : 99999 €</div>
             </form>
             <h2 class="mode-menu">MODE</h2>
-            <form class="form-floating">
+            <form id="radio-container" class="form-floating">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="mode" id="mode-1"
                         value="soft" checked>
@@ -57,7 +57,7 @@
     <section id="main-container">
         <div id="main-row" class="row">
             <!-- INFOS -->
-            <div id="infos" class="col-md-2">
+            <div id="infos" class="col-xl-2 col-md-3">
                 <div id="calendar">
                     <div class="calendar-top">
                         <p>Jours restants</p>
@@ -78,10 +78,9 @@
             </div>
 
             <!-- EVENTS -->
-            <div id="events" class="col-md-5">
+            <div id="events" class="col-xl-5 col-md-8">
                 <div id="items" class="row">
                     <div class="items-container">
-                        <h2>Votre chargement</h2>
                         <div>
                             <p><span class="product-name" id="p_0"></span> : <span class="product-number"
                                     id="p_0_amount"></span></p>
@@ -156,7 +155,7 @@
             </div>
 
             <!-- DISTRICTS -->
-            <div id="districts" class="col-md-5">
+            <div id="districts" class="col-xl-5 col-md-8">
                 <div id="districts-container">
                     <div id="d_0" class="district">
                         <div class="district-content">

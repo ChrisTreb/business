@@ -219,7 +219,7 @@ function travelHome() {
             $("#events").slideUp().promise().done(function () {
                 displayDistrictPanel();
                 $("#btn-home").fadeOut();
-                displayMessage("Tu prends le bus pour rentrer, - " + transportPrice + currency);
+                displayMessage("Tu prends le bus pour rentrer, - " + transportPrice + currency + " Bonne nuit !");
                 setLSMoney(getLSMoney() - transportPrice);
             }).promise().done(function () {
                 $("body").css("background-image", "url(" + homeImg + ")");
@@ -235,7 +235,7 @@ function travelHome() {
 function travelDistrict(mode) {
     $(".district-content").off().click(function () {
         if (getLSDays() > 0 && getLSMoney() >= 2) {
-            displayMessage("Tu prends le bus, - " + transportPrice + currency);
+            displayMessage("Tu prends le bus, - " + transportPrice + currency + " Au travail !");
             setLSMoney(getLSMoney() - transportPrice);
             displayMoney(getLSMoney());
             displayTradePanel($(this));
@@ -319,13 +319,11 @@ function end() {
 
 // Display message
 function displayMessage(message) {
-    $("#message").css("bottom", getRandom(100, 600) + "px");
-    $("#message").css("left", getRandom(250, 800) + "px");
     $("#message").fadeIn();
     $("#message-text").text(message);
     setTimeout(function () {
         $("#message").fadeOut();
-    }, 3000);
+    }, 1000);
 }
 
 //----------------------------------------

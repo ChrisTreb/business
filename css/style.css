@@ -5,8 +5,9 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
+    max-width: 100vw;
     background-image: url(../img/home.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -16,7 +17,6 @@ body {
 .row {
     --bs-gutter-x: 0px;
     max-width: 100vw;
-    max-height: 100vh;
 }
 
 p {
@@ -54,6 +54,8 @@ nav {
 
 #nav-container > p {
     margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.2em;
 }
 
 h2.menu-title {
@@ -63,9 +65,16 @@ h2.menu-title {
 }
 
 h2.mode-menu {
-    margin-top: 20px;
+    margin: 20px 0;
     font-size: 1.2em;
     font-weight: bolder;
+    text-align: center;
+}
+
+#radio-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #close-menu {
@@ -111,58 +120,6 @@ h2.mode-menu {
     width: 50px;
     height: 50px;
     cursor: pointer;
-}
-
-#submit {
-    margin-top: 20px;
-    height: 50px;
-    width: 150px;
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    display: inline-block;
-    text-align: center;
-    font-weight: bold;
-    padding: 0.2em 0.5em;
-    border: 2px solid #2761c3;
-    border-radius: 2px;
-    position: relative;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
-    color: #2761c3;
-    text-decoration: none;
-    transition: 0.3s ease all;
-    z-index: 1;
-}
-
-#submit:before {
-    transition: 0.5s all ease;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    right: 50%;
-    bottom: 0;
-    opacity: 0;
-    content: '';
-    background-color: #2761c3;
-    z-index: -1;
-}
-
-#submit:hover,
-#submit:focus {
-    color: white;
-}
-
-#submit:hover:before,
-#submit:focus:before {
-    transition: 0.5s all ease;
-    left: 0;
-    right: 0;
-    opacity: 1;
-}
-
-#submit:active {
-    transform: scale(0.9);
 }
 
 /* INFOS */
@@ -285,7 +242,6 @@ h2.mode-menu {
 
 #events {
     display: none;
-    max-height: 100vh;
 }
 
 #items {
@@ -294,7 +250,7 @@ h2.mode-menu {
 }
 
 .items-container {
-    padding: 5px;
+    padding: 5px 1em;
     border-radius: 10px;
     background-color: #ECE9E8;
     box-shadow: 4px 6px 3px 0px rgba(0, 0, 0, 0.30);
@@ -307,7 +263,7 @@ h2.mode-menu {
 }
 
 .items-container>div {
-    padding: 15px;
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -319,7 +275,7 @@ h2.mode-menu {
 .product-name {
     display: inline-block;
     width: 50%;
-    font-size: 20px;
+    font-size: 1em;
     font-weight: bold;
 }
 
@@ -335,21 +291,23 @@ h2.mode-menu {
 }
 
 #items-trade-list {
-    margin-top: 5px;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
 #items-top {
+    background-color: #2760c3c5;
     color: white;
     padding: 0 20px;
-    font-size: 18px;
+    margin-bottom: 5px;
+    font-size: 1em;
     font-weight: bold;
     width: 100%;
     height: 40px;
     display: flex;
     align-items: center;
+    border-radius: 5px;
 }
 
 .item-name {
@@ -391,7 +349,7 @@ h2.mode-menu {
 }
 
 /* BUTTONS */
-button.buy {
+button {
     width: 80px;
     font-size: 12px;
     letter-spacing: 2px;
@@ -400,17 +358,15 @@ button.buy {
     text-align: center;
     font-weight: bold;
     padding: 0.2em 0.5em;
-    border: 2px solid #7438ff;
     border-radius: 2px;
     position: relative;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
-    color: #7438ff;
     text-decoration: none;
     transition: 0.3s ease all;
     z-index: 1;
 }
 
-button.buy:before {
+button:before {
     transition: 0.5s all ease;
     position: absolute;
     top: 0;
@@ -419,40 +375,6 @@ button.buy:before {
     bottom: 0;
     opacity: 0;
     content: '';
-    background-color: #7438ff;
-    z-index: -1;
-}
-
-button.sell {
-    width: 80px;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    display: inline-block;
-    text-align: center;
-    font-weight: bold;
-    padding: 0.2em 0.5em;
-    border: 2px solid #ff3853;
-    border-radius: 2px;
-    position: relative;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
-    color: #ff3853;
-    text-decoration: none;
-    transition: 0.3s ease all;
-    z-index: 1;
-}
-
-button.sell:before {
-    transition: 0.5s all ease;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    right: 50%;
-    bottom: 0;
-    opacity: 0;
-    content: '';
-    background-color: #ff3853;
     z-index: -1;
 }
 
@@ -473,55 +395,48 @@ button:active {
     transform: scale(0.9);
 }
 
-/* BUTTON HOME */
+.buy {
+    border: 2px solid #7438ff;
+    color: #7438ff;
+}
+
+.buy::before {
+    background-color: #7438ff;
+}
+
+.sell {
+    border: 2px solid #ff3853;
+    color: #ff3853;
+}
+
+.sell::before {
+    background-color: #ff3853;
+}
+
 #btn-home {
     display: none;
-    width: 180px;
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: bold;
-    padding: 0.2em 0.5em;
+    width: 90%;
+    font-size: 2em;
     border: 2px solid #2761c3;
-    border-radius: 2px;
-    position: relative;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
     color: #2761c3;
-    text-decoration: none;
-    transition: 0.3s ease all;
-    z-index: 1;
 }
 
-#btn-home:before {
-    transition: 0.5s all ease;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    right: 50%;
-    bottom: 0;
-    opacity: 0;
-    content: '';
+#submit {
+    display: block;
+    margin: 15px auto 0 auto;
+    width: 60%;
+    font-size: 1.2em;
+    border: 2px solid #2761c3;
+    color: #2761c3;
+}
+
+#btn-home::before, #submit::before {
     background-color: #2761c3;
-    z-index: -1;
 }
 
-#btn-home:hover,
-#btn-home:focus {
+#btn-home:hover, #submit:hover, 
+#btn-home:focus, #submit:focus {
     color: white;
-}
-
-#btn-home:hover:before,
-#btn-home:focus:before {
-    transition: 0.5s all ease;
-    left: 0;
-    right: 0;
-    opacity: 1;
-}
-
-#btn-home:active {
-    transform: scale(0.9);
 }
 
 /* POPUP */
@@ -560,9 +475,11 @@ button:active {
     display: none;
     z-index: 1000;
     position: absolute;
+    top: calc(50vh - 50px);
+    left: calc(50vw - 175px);
     padding: 15px;
     width: 350px;
-    height: 100px;
+    height: auto;
     border-radius: 5px;
     background-color:#F4F1CA;
     border: 5px dashed #ff3853;
@@ -577,4 +494,5 @@ button:active {
     justify-content: center;
     font-weight: bold;
     color: black;
+    text-align: center;
 }
