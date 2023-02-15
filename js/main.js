@@ -232,7 +232,7 @@ function travelHome() {
 }
 
 // Take bus to a district
-function travelDistrict(mode) {
+function travelDistrict() {
     $(".district-content").off().click(function () {
         if (getLSDays() > 0 && getLSMoney() >= 2) {
             displayMessage("Tu prends le bus, - " + transportPrice + currency + " Au travail !");
@@ -310,7 +310,7 @@ function end() {
     if (parseInt(getLSDays()) === 0) {
         clearLS();
         displayDays(0);
-        $("#popup-title").text("Le mois est terminé !");
+        $("#popup-title").text("Le temps alloué est écoulé !");
     } else if (getLSMoney() <= 2) {
         clearLS();
         $("#popup-title").text("Vous êtes à sec !");

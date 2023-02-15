@@ -34,20 +34,19 @@
                 <div class="form-text mb-3">Nombre maximum de jours : 365</div>
             </form>
             <form class="form-floating">
-                <input type="number" class="form-control" id="inputMoney" placeholder="1000" value="1000" min="500" max="10000">
+                <input type="number" class="form-control" id="inputMoney" placeholder="1000" value="1000" min="500"
+                    max="10000">
                 <label for="inputMoney">Combien d'argent ?</label>
                 <div class="form-text mb-3">Montant maximum : 99999 €</div>
             </form>
             <h2 class="mode-menu">MODE</h2>
             <form id="radio-container" class="form-floating">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="mode" id="mode-1"
-                        value="soft" checked>
+                    <input class="form-check-input" type="radio" name="mode" id="mode-1" value="soft" checked>
                     <label class="form-check-label">Soft</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="mode" id="mode-2"
-                        value="junk">
+                    <input class="form-check-input" type="radio" name="mode" id="mode-2" value="junk">
                     <label class="form-check-label">Junk</label>
                 </div>
             </form>
@@ -68,7 +67,7 @@
                     </div>
                 </div>
                 <div id="wallet">
-                    <p>Votre portefeuille</p>
+                    <p>Portefeuille</p>
                     <p id="money"></p>
                 </div>
                 <div id="home">
@@ -193,6 +192,7 @@
 
         </div>
 
+        <!-- POPUP END GAME -->
         <div id="popup">
             <div>
                 <div id="popup-content">
@@ -205,9 +205,20 @@
             </div>
         </div>
 
+        <!-- POPUP MESSAGE INFO -->
         <div id="message">
-            <div> 
+            <div>
                 <p id="message-text"></p>
+            </div>
+        </div>
+
+        <!-- POPUP DICES -->
+        <div id="dices-container">
+            <div class="dices">
+                <div>
+                    <img src="img/Gif/Dices.gif" />
+                    <p class="dices-text">12</p>
+                </div>
             </div>
         </div>
 
