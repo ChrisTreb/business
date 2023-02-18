@@ -53,7 +53,7 @@ nav {
 }
 
 #nav-container {
-    width: 30%;
+    min-width: 30%;
 }
 
 #nav-container > p {
