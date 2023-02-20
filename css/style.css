@@ -56,7 +56,7 @@ nav {
     min-width: 30%;
 }
 
-#nav-container > p {
+#nav-container>p {
     margin-bottom: 20px;
     text-align: center;
     font-size: 1.2em;
@@ -438,12 +438,15 @@ button:active {
     color: #2761c3;
 }
 
-#btn-home::before, #submit::before {
+#btn-home::before,
+#submit::before {
     background-color: #2761c3;
 }
 
-#btn-home:hover, #submit:hover, 
-#btn-home:focus, #submit:focus {
+#btn-home:hover,
+#submit:hover,
+#btn-home:focus,
+#submit:focus {
     color: white;
 }
 
@@ -489,7 +492,7 @@ button:active {
     width: 350px;
     height: auto;
     border-radius: 5px;
-    background-color:#F4F1CA;
+    background-color: #F4F1CA;
     border: 5px dashed #ff3853;
     box-shadow: 4px 6px 3px 0px rgba(0, 0, 0, 0.30);
 }
@@ -526,21 +529,35 @@ button:active {
 }
 
 .dices>div {
+    max-width: 50%;
     display: flex;
-    padding: 15px;
-    border-radius: 5px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .dices>div>img {
     display: block;
     margin: auto;
+    max-width: 50%;
 }
 
-.dices-text {
+#close-dices {
+    position: absolute;
+    color: #ff3853;
+    font-size: 50px;
+    right: 100px;
+    top: 100px;
+    transition: 0.5s;
+}
 
-    display: none;
+#close-dices:hover {
+    transform: scale(0.9);
+}
+
+#event-text {
     text-align: center;
     color: #ff3853;
-    font-size: 20vw;
-    font-weight: bolder;
+    font-size: 45px;
+    font-weight: bold;
+    width: 100%;
 }

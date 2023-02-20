@@ -39,6 +39,13 @@ function closeMenu() {
     })
 }
 
+// Close dices popup
+function closeDices() {
+    $("#close-dices").off().click(function () {
+        $("#dices-container").fadeOut();
+    })
+}
+
 // Submit params form
 function submitForm() {
     $("#submit").off().click(function () {
@@ -195,12 +202,12 @@ function displayTradePanel(district) {
     $("#districts").slideUp().promise().done(function () {
         displayEventsPanel()
     }).promise().done(function () {
-        if(getLSMode() === gameMode[0].name) {
+        if (getLSMode() === gameMode[0].name) {
             $("body").css("background-image", "url(" + districts_soft[districtId].img + ")");
         } else {
             $("body").css("background-image", "url(" + districts[districtId].img + ")");
         }
-        
+
     });
 }
 
@@ -213,6 +220,9 @@ function displayHomeButton() {
 function travelHome() {
     $("#btn-home").off().click(function () {
         if (getLSMoney() >= 2 && getLSDays() > 0) {
+
+            // Random event
+            createRandomEvent();
             let days = parseInt(getLSDays());
             setLSDays(days - 1);
             displayDays(getLSDays());
@@ -235,6 +245,9 @@ function travelHome() {
 function travelDistrict() {
     $(".district-content").off().click(function () {
         if (getLSDays() > 0 && getLSMoney() >= 2) {
+
+            // Random event
+            createRandomEvent();
             displayMessage("Tu prends le bus, - " + transportPrice + currency + " Au travail !");
             setLSMoney(getLSMoney() - transportPrice);
             displayMoney(getLSMoney());
@@ -326,6 +339,35 @@ function displayMessage(message) {
     }, 1000);
 }
 
+// Display dices container
+function displayEvent(num, text) {
+    $(".dices-text").text(num);
+    $("#event-text").text(text);
+    setTimeout(function () {
+        $(".dices-text").fadeIn();
+    }, 1000);
+    $("#dices-container").fadeIn();
+    setTimeout(function () {
+        $("#event-text").fadeIn();
+    }, 2000);
+}
+
+// Create random event
+function createRandomEvent() {
+
+    let rng = getRandom(1, 12);
+
+    if (rng === 6) {
+        displayEvent(rng, "Lucky ! You found 100 € in the bus");
+        setLSMoney(parseInt(getLSMoney()) + 100);
+        displayMoney();
+    } else if(rng === 9 && (getLSMoney() > 150)) {
+        displayEvent(rng, "Damn ! A pickpocket stole 100 €");
+        setLSMoney(parseInt(getLSMoney()) - 100);
+        displayMoney();
+    }
+}
+
 //----------------------------------------
 // READY FUNCTION !!!!!!!!!!!!! ----------
 //----------------------------------------
@@ -337,6 +379,9 @@ $(document).ready(function () {
 
     // Close menu
     closeMenu();
+
+    // Close dices popup
+    closeDices();
 
     // Submit params form
     submitForm();
