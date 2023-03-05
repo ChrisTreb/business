@@ -321,9 +321,10 @@ function sell() {
 function end() {
     $("#popup").fadeIn();
     if (parseInt(getLSDays()) === 0) {
+        $("#popup-title").text("Le temps alloué est écoulé !");
+        $("#pop-text").text("Vous avez réussi à gagner : " + getLSMoney() + " €.");
         clearLS();
         displayDays(0);
-        $("#popup-title").text("Le temps alloué est écoulé !");
     } else if (getLSMoney() <= 2) {
         clearLS();
         $("#popup-title").text("Vous êtes à sec !");
@@ -355,15 +356,17 @@ function displayEvent(num, text) {
 // Create random event
 function createRandomEvent() {
 
-    let rng = getRandom(1, 12);
+    let rng = getRandom(1, 24);
 
-    if (rng === 6) {
-        displayEvent(rng, "Lucky ! You found 100 € in the bus");
-        setLSMoney(parseInt(getLSMoney()) + 100);
+    console.log('Random event number : ' + rng);
+
+    if (rng === 12) {
+        displayEvent(rng, "La chance ! Vous trouvez 50 € dans le bus.");
+        setLSMoney(parseInt(getLSMoney()) + 50);
         displayMoney();
-    } else if(rng === 9 && (getLSMoney() > 150)) {
-        displayEvent(rng, "Damn ! A pickpocket stole 100 €");
-        setLSMoney(parseInt(getLSMoney()) - 100);
+    } else if(rng === 24 && (getLSMoney() > 100)) {
+        displayEvent(rng, "Mince ! On vous a volé 50 €.");
+        setLSMoney(parseInt(getLSMoney()) - 50);
         displayMoney();
     }
 }

@@ -474,11 +474,12 @@ button:active {
     width: 50%;
     height: 50%;
     border-radius: 10px;
-    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: #7438ff;
+    color: white;
 }
 
 /* MESSAGE */
